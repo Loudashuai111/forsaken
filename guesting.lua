@@ -243,4 +243,4 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 })
 
 -- 加载 Guesting Hub 脚本
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Veux67/Guesting-Hub/main/Guesting%20Hub%20v2.8"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LolnotaKid/project/refs/heads/main/AutoBLOCKKKWAHV1"))()

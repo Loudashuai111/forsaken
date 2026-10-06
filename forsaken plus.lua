@@ -1,5 +1,5 @@
 --[[
-    Naiko Forsaken Plus 汉化脚本
+    Naiko Forsaken Plus 汉化脚本（完整版）
     格式：["英文原文"] = "中文翻译",
 ]]
 
@@ -63,15 +63,14 @@ local Value = {
     ["Disable Noli's NPC"] = "禁用 Noli 的 NPC",
     ["Disables Noli's Distracting NPC"] = "禁用 Noli 的干扰 NPC",
     ["Disable 007n7's NPC"] = "禁用 007n7 的 NPC",
+    ["Size"] = "大小",
 
     -- ==================== Features（功能） ====================
     ["Auto Disarm"] = "自动拆除",
     ["Auto-Disarms Azure's Traps"] = "自动拆除 Azure 的陷阱",
-    ["不可战胜"] = "不可战胜",
-    ["Makes you invisible & god mode (you can still use abilities)"] = "让你隐身并进入无敌模式（仍可使用技能）",
     ["Disable Killer Walls"] = "禁用杀手墙壁",
     ["Disables Thin Killer Walls"] = "禁用薄杀手墙壁",
-    ["Disable John Doe's Trails"] = "禁用 John Doe 的轨迹",
+    ["Disable John Doe's Trails"] = "禁用 John Doe 的伤害轨迹",
     ["Disables damaging trails for john doe"] = "禁用 John Doe 的伤害轨迹",
     ["Disable John Doe's Footprints"] = "禁用 John Doe 的脚印",
     ["Disables footprints made by john doe"] = "禁用 John Doe 制造的脚印",
@@ -91,7 +90,6 @@ local Value = {
     -- ==================== 体力/动画 ====================
     ["Stamina Preset"] = "体力预设",
     ["Select a Stamina Preset"] = "选择体力预设",
-    ["原版"] = "原版",
     ["Realistic"] = "真实",
     ["Semi-Realistic"] = "半真实",
     ["Infinite"] = "无限",
@@ -109,6 +107,22 @@ local Value = {
     ["Auto-Picks up Items near you"] = "自动拾取你附近的物品",
     ["Auto Escape"] = "自动逃脱",
     ["Auto-Escapes Nosferatu's Hook"] = "自动逃脱 Nosferatu 的钩子",
+
+    -- ==================== 杂项补充 ====================
+    ["Delete All Ragdolls"] = "删除所有布娃娃",
+    ["Deletes ALL Ragdolls regardless the type of ragdoll for performance"] = "删除所有布娃娃，无论类型如何，以提升性能",
+    ["Player to crash"] = "崩溃玩家",
+    ["Select a player to crash"] = "选择要崩溃的玩家",
+
+    -- ==================== 主机功能 ====================
+    ["Sky Glitch"] = "天空故障",
+    ["Gives sky glitching effect to everyone (Host Exclusive)"] = "给所有人带来天空故障效果（仅主机）",
+    ["Instant Kill"] = "瞬间击杀",
+    ["Allows you to instantly kill anyone (Host Exclusive)"] = "允许你瞬间击杀任何人（仅主机）",
+    ["Disable Damage"] = "禁用伤害",
+    ["Disables dealing damage for everyone (Host Exclusive)"] = "禁用所有人的伤害输出（仅主机）",
+    ["Disable Ability Cooldown"] = "禁用技能冷却",
+    ["Disables the ability cooldown only for you (Host Exclusive)"] = "仅为你禁用技能冷却（仅主机）",
 
     -- ==================== 颜色选项 ====================
     ["Gold"] = "金色",

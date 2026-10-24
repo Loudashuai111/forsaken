@@ -1,0 +1,121 @@
+local P = game:GetService("Players").LocalPlayer.Character
+
+local Player = game:GetService("Players").LocalPlayer
+
+local desc = game.Players:GetHumanoidDescriptionFromUserId(Player.UserId) 
+
+local blankdesc = Instance.new("HumanoidDescription") 
+
+local Yourself = game.Players:CreateHumanoidModelFromDescription(blankdesc, Enum.HumanoidRigType.R6) 
+Yourself.Parent = workspace.Players
+Yourself.PrimaryPart.CFrame = P.PrimaryPart.CFrame
+Yourself.Humanoid:ApplyDescription(desc) 
+local function resetYourself() 
+    if not Yourself then return end
+    Yourself:Destroy() 
+end
+P.Humanoid.Died:Connect(function()
+    delay(5, function() 
+        resetYourself() 
+    end) 
+end) 
+Player.CharacterAdded:Connect(resetYourself) 
+
+if P.Name == "Slasher" and P:GetAttribute("SkinName") == "" then
+    P["Slasher Export"]:Destroy() 
+    P.Mask:Destroy() 
+elseif P.Name == "c00lkidd" and P:GetAttribute("SkinName") == "" then
+    P.coolkiddrblx:Destroy() 
+elseif P.Name == "1x1x1x1" and P:GetAttribute("SkinName") == "" then
+    P.Highlight:Clone().Parent = Yourself
+    P.Highlight.Adornee = P.ExtraModels
+    P.Head.face:Destroy() 
+    P.Head.face:Destroy()
+    P.ExtraModels.GlowyTorso:Destroy() 
+    Yourself.Highlight.FillColor = Color3.fromRGB(148, 148, 148) 
+
+    local BillboardGui = Instance.new("BillboardGui", Yourself.Head)
+    BillboardGui.Size = UDim2.new(0.7, 0, 0.7, 0)
+    BillboardGui.Adornee = BillboardGui.Parent
+    BillboardGui.Enabled = true
+    BillboardGui.AlwaysOnTop = true
+    BillboardGui.Active = true
+
+    local Censor = Instance.new("TextLabel", BillboardGui)
+    Censor.Text = ""
+    Censor.Size = UDim2.new(2, 0, 2, 0)
+    Censor.BackgroundColor3 = Color3.new(0, 0, 0)
+    Censor.BorderColor3 = Color3.new(1, 1, 1)
+    Censor.BorderSizePixel = 0
+    Censor.Position = UDim2.new(-0.5, 0, -0.5, 0)
+    Censor.TextColor3 =  Color3.new(0, 0, 0)
+elseif P.Name == "JohnDoe" and P:GetAttribute("SkinName") == "" then
+    P.John["Left Arm"]["Left Claws"].Parent = P.John
+    local weld = Instance.new("Weld", P.John["Left Claws"]) 
+    weld.Part0 = P["Left Arm"]
+    weld.Part1 = weld.Parent
+    weld.C1 = CFrame.new(0, 1.5, 0) 
+    P.John.Head:Destroy() 
+    P.John.Torso:Destroy() 
+    P.John["Left Arm"]:Destroy() 
+    P.John["Left Leg"]:Destroy() 
+    P.John["Right Leg"]:Destroy() 
+    Yourself["Right Arm"].Transparency = 1
+    P.John["Spike Arm"].SurfaceAppearance:Destroy() 
+    P.John["Spike Arm"].Color = Yourself["Right Arm"].Color
+    P.John["Left Claws"].SurfaceAppearance:Destroy() 
+    P.John["Left Claws"].Color = Yourself["Left Arm"].Color
+elseif P.Name == "Nosferatu" and P:GetAttribute("SkinName") == "" then
+    for _, v in pairs(P.Nos:GetChildren()) do
+        if v:IsA("MeshPart") or v:IsA("Model") then
+            if v.Name ~= "Hair Base" then
+                v:Destroy() 
+            end
+        end
+    end
+
+    for _, v in pairs(Yourself:GetDescendants()) do
+        spawn(function() while wait() do
+            if not P.Parent then return end
+            if v:IsA("BasePart") then
+                v.Transparency = P.Nos["Hair Base"].Transparency
+            end
+        end end) 
+    end
+elseif P.Name == "Noli" and P:GetAttribute("SkinName") == "" then
+    P.Noli:Destroy() 
+end
+
+Yourself.Humanoid.DisplayDistanceType = ("None") 
+Yourself.Humanoid.EvaluateStateMachine = false
+local JointHrp = Instance.new("Weld")
+JointHrp.Part0 = Yourself.PrimaryPart
+JointHrp.Part1 = P.PrimaryPart
+Yourself:WaitForChild("Animate"):Destroy() 
+for _, v in pairs(Yourself:GetDescendants()) do
+    if v:IsA("BasePart") then
+        spawn(function() while wait() do
+            if not v then return end
+            v.Massless = true
+            v.CanCollide = false
+        end end) 
+    elseif v:IsA("Motor6D") then
+        v.Enabled = false
+    end
+end
+
+local limbsTbl = {"Head", "Torso", "Left Arm", "Right Arm", "Left Leg", "Right Leg"}
+
+for _, limbs in pairs(limbsTbl) do
+    local Joints = Instance.new("Weld", P[limbs]) 
+    Joints.Name = limbs.. "JointForYourself"
+    Joints.Part0 = P[limbs]
+    Joints.Part1 = Yourself[limbs]
+    spawn(function() while wait() do
+        local suc = pcall(function() 
+        if P[limbs].Transparency ~= 1 then
+            P[limbs].Transparency = 1
+        end
+        end) 
+    end end) 
+end
